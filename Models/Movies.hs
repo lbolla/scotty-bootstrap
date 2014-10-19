@@ -29,7 +29,7 @@ runDB :: Pool SqlBackend -> SqlPersistT IO a -> IO a
 runDB = flip runSqlPool
 
 mkMoviesDB :: Pool SqlBackend -> IO ()
-mkMoviesDB pool = runDB pool $ do
+mkMoviesDB = runSqlPool $ do
     runMigration migrateAll
     movieIds <- insertMany movies
     liftIO $ print movieIds
@@ -42,5 +42,4 @@ mkMoviesDB pool = runDB pool $ do
                  ]
 
 getMovies :: Pool SqlBackend -> IO [Entity Movie]
-getMovies pool = runDB pool $ selectList [] []
-
+getMovies = runSqlPool $ selectList [] []
