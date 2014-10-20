@@ -32,6 +32,7 @@ executable app
                        monad-logger,
                        persistent ==2.1.*,
                        persistent-sqlite ==2.1.*,
+                       persistent-postgresql ==2.1.*,
                        persistent-template ==2.1.*,
                        resourcet,
                        resource-pool,
