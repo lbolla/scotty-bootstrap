@@ -22,6 +22,14 @@ Movie json
     title String
     year Int
     rating Int
+    -- Implicit primary key
+    deriving Show
+Actor json
+    name String
+    surname String
+    dob Int
+    -- Composite primary key
+    Primary name surname
     deriving Show
 |]
 
